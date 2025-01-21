@@ -2,6 +2,8 @@ import argparse
 import logging
 import os
 import warnings
+import mlflow
+import mlflow.pytorch
 
 warnings.filterwarnings('ignore')
 import torch
@@ -30,6 +32,7 @@ def main(args):
     model = Classifier(len(CLASS_NAMES), backbone=BACKBONE, freeze_backbone=FREEZE_BACKBONE)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model.to(device)
+    
 
     if args.mode == "train":
         # Load the entire dataset
@@ -43,7 +46,7 @@ def main(args):
         criterion = torch.nn.CrossEntropyLoss()
 
         # Define K-fold cross-validation with k=5
-        k_folds = 5
+        k_folds = 2
         kfold = KFold(n_splits=k_folds, shuffle=True)
 
         # K-fold Cross Validation model evaluation
