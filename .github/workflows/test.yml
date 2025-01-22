@@ -43,7 +43,7 @@ jobs:
       # Add the DVC remote
       - name: Add DVC Remote
         run: |
-          uv run dvc remote add -d gdrive-remote gdrive://<your-gdrive-folder-id>
+          uv run dvc remote add -d gdrive-remote gdrive://1rAlcFkM9POmRdF_TZ74K8G_8tsFFtD2g
 
       # Modify the DVC remote with credentials
       - name: Modify DVC Remote
