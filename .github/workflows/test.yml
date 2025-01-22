@@ -38,6 +38,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install uv  # Ensure uv is installed
+          pip install dvc[gdrive]
 
       # DVC configuration
       - name: Create myfirstproject.json
