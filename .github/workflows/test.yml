@@ -49,12 +49,11 @@ jobs:
 
       - name: Add and configure DVC remote
         run: |
+          uv run dvc remote add -d gdrive-remote gdrive://1rAlcFkM9POmRdF_TZ74K8G_8tsFFtD2g
           
           uv run dvc remote modify --local gdrive-remote gdrive_service_account_json_file_path myfirstproject.json
 
-      - name: Pull DVC data
-        run: |
-          uv run dvc pull -v
+      
 
       # Run CNN Inference
       - name: Run tests
